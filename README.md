@@ -1,33 +1,61 @@
 # convnet-thermal-cpu
 
-CNN model that cassifyes between 11 different CPU activities; AES and RSA encryptions - analog and serial writes - analog and serial reads - brute force - Standby mode - Sleep mode - delay - Wordlist generation.
+This is a CNN model that classifies between 11 different CPU activities: AES and RSA encryptions, analog and serial writes, analog and serial reads, brute force, Standby mode, Sleep mode, delay, and Wordlist generation.
 
-### to create a CSV file with images and corresponding labels 
-(don't forget to change path to the directory with in_data)
-First run $ python PrepareCSV.py 
+## Creating a CSV file with images and corresponding labels
 
+To create a CSV file with images and corresponding labels, first run the following command (don't forget to change the path to the directory with `in_data`):
 
-### to create two CSV files mapping paths for images and their labels
-second run $ python Splitdata.py --input "path to you saved data.csv"  --output "path to where you want to save Train.csv /Val,csv files"
-### if you create a new data.csv, resolv slicing depending on how much items you in the dataset and what proportions you want to use for train and validation
+```sh
+$ python PrepareCSV.py
+```
 
+### Creating two CSV files mapping paths for images and their labels
 
-## for training 
-run $ python Train.py 
-## you can change the default paths to csv files inside the script location by default is the home directory for the project
+To create two CSV files mapping paths for images and their labels, run the following command:
 
+```sh
+$ python Splitdata.py --input "path to your saved data.csv" --output "path to where you want to save Train.csv/Val.csv files"
+```
 
-## for testing 
-run $ python Xtest.py --checkpoint "path to checkpoint you to test with"
-## default dir for checkpoints is ./checkpoints/
+If you create a new `data.csv`, resolve slicing depending on how many items you have in the dataset and what proportions you want to use for training and validation.
 
+## Training
 
-## to resume training from a checkpoint n (number of epochs)
-run $ python resumeTrain,py --resume_from_checkpoint "path to checkpoint"
-## don't forget to set start_epoch variable to n+1
+To train the model, run the following command:
 
+```sh
+$ python Train.py
+```
 
-## to visualize logs
-run $ tensorboard --logdir=./logs/ 
+You can change the default paths to CSV files inside the script. The location by default is the home directory for the project.
 
-./logs/ is the default dir for logs 
+## Testing
+
+To test the model, run the following command:
+
+```sh
+$ python Xtest.py --checkpoint "path to checkpoint you want to test with"
+```
+
+The default directory for checkpoints is `./checkpoints/`.
+
+## Resuming training from a checkpoint
+
+To resume training from a checkpoint `n` (number of epochs), run the following command:
+
+```sh
+$ python resumeTrain.py --resume_from_checkpoint "path to checkpoint"
+```
+
+Don't forget to set the `start_epoch` variable to `n+1`.
+
+## Visualizing logs
+
+To visualize logs, run the following command:
+
+```sh
+$ tensorboard --logdir=./logs/
+```
+
+`./logs/` is the default directory for logs.
