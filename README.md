@@ -15,7 +15,7 @@ $ python PrepareCSV.py
 To create two CSV files mapping paths for images and their labels, run the following command:
 
 ```sh
-$ python Splitdata.py --input "path to your saved data.csv" --output "path to where you want to save Train.csv/Val.csv files"
+$ python Splitdata.py --input [path to your saved data.csv] --output [path to where you want to save Train.csv/Val.csv files]
 ```
 
 If you create a new `data.csv`, resolve slicing depending on how many items you have in the dataset and what proportions you want to use for training and validation.
@@ -35,7 +35,7 @@ You can change the default paths to CSV files inside the script. The location by
 To test the model, run the following command:
 
 ```sh
-$ python Xtest.py --checkpoint "path to checkpoint you want to test with"
+$ python Test.py --checkpoint [path to checkpoint you want to test with]
 ```
 
 The default directory for checkpoints is `./checkpoints/`.
@@ -45,7 +45,7 @@ The default directory for checkpoints is `./checkpoints/`.
 To resume training from a checkpoint `n` (number of epochs), run the following command:
 
 ```sh
-$ python resumeTrain.py --resume_from_checkpoint "path to checkpoint"
+$ python resumeTrain.py --resume_from_checkpoint [path to checkpoint]
 ```
 
 Don't forget to set the `start_epoch` variable to `n+1`.
